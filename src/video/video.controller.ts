@@ -25,7 +25,7 @@ export class VideoController {
 
     try {
       const data = await this.s3.listObjectsV2(params).promise();
-      console.log('S3 List Objects Response:', data); // Debugging log
+      // console.log('S3 List Objects Response:', data); // Debugging log
 
       const videoUrls = data.Contents?.filter((item) => item.Key?.endsWith('.mp4')).map((item) =>
         this.s3.getSignedUrl('getObject', {
@@ -35,7 +35,7 @@ export class VideoController {
         }),
       );
 
-      console.log('Generated Video URLs:', videoUrls); // Debugging log
+      // console.log('Generated Video URLs:', videoUrls); // Debugging log
       return { videos: videoUrls || [] };
     } catch (error) {
       console.error('Error fetching videos from S3:', error);
