@@ -1,5 +1,8 @@
 import { Controller, Get } from '@nestjs/common';
 import * as AWS from 'aws-sdk';
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 
 @Controller('videos')
 export class VideoController {
@@ -16,7 +19,7 @@ export class VideoController {
 
   @Get()
   async getVideos() {
-    const params = {
+    const params = { 
       Bucket: this.bucketName,
     };
 

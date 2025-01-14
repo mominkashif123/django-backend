@@ -4,6 +4,9 @@ import { User, UserSchema } from './user.schema';
 import { UserService } from './user.service';
 import { UserController } from './user.controller';
 import { MailModule } from '../mail/mail.module' 
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 
 @Module({
   imports: [
